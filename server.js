@@ -5,15 +5,20 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 
 const mongoConfig = require("./config/mongoConfig");
-const blogRouter = require("./routes/blogsRouter");
+const blogsRouter = require("./routes/blogsRouter");
+const usersRouter = require("./routes/usersRouter");
 
 const app = express();
 const PORT = 5000;
 
 // Middleware
+app.use(express.json());
+app.use(morgan("dev"));
+app.use(helmet());
 
 // Routers
-app.use("/blog", blogRouter);
+app.use("/blogs", blogsRouter);
+app.use("/users", usersRouter);
 
 // Root route for the App
 app.get("/", (req, res) => {
