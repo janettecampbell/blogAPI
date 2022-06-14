@@ -13,6 +13,7 @@ router.get("/", async (req, res) => {
     res.status(200).json(user);
   } catch (error) {
     console.error(error);
+    res.status(400).json("Bad request");
   }
 });
 
@@ -84,12 +85,21 @@ router.put("/:id", async (req, res) => {
     res.status(202).json(user);
   } catch (error) {
     console.error(error);
+    res.status(400).json("Bad request");
   }
 });
 
 // Delete user by ID
-router.delete("/:id", (req, res) => {
-  const id = re;
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const user = await usersModel.findByIdAndDelete(id);
+    res.status(200).json("User was deleted");
+  } catch (error) {
+    console.error(error);
+    res.status(400).json("Bad request");
+  }
 });
 
 module.exports = router;
