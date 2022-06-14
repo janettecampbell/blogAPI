@@ -78,8 +78,9 @@ router.post(
 // Get user by ID
 router.get("/:id", authMiddleware, async (req, res) => {
   const id = req.params.id;
+
   try {
-    const user = await usersModel.find(id);
+    const user = await usersModel.findById(id);
     res.status(200).json(user);
   } catch (error) {
     console.error(error);
