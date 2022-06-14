@@ -21,7 +21,6 @@ router.get("/", authMiddleware, async (req, res) => {
 // Create users
 router.post(
   "/",
-  authMiddleware,
   [
     check("username", "Username is required"),
     check("email", "Please use a valid email").isEmail(),
@@ -53,6 +52,7 @@ router.post(
 
       // Create new user
       const SALT = await bcrypt.genSalt(12);
+
       const hashedPassword = await bcrypt.hash(userData.password, SALT);
       userData.password = hashedPassword;
       const user = await usersModel.create(userData);
