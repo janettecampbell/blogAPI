@@ -14,6 +14,15 @@ router.get("/", authMiddleware, async (req, res) => {
   }
 });
 
+router.get("/public", authMiddleware, async (req, res) => {
+  try {
+    const blog = await blogModel.find({ private: false });
+    res.status(200).json(blog);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 // Create blog
 router.post("/", authMiddleware, async (req, res) => {
   const blogData = req.body;
