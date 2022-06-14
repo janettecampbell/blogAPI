@@ -73,6 +73,17 @@ router.post(
   }
 );
 
+// Get user by ID
+router.get("/:id", async (req, res) => {
+  try {
+    const user = await usersModel.find();
+    res.status(200).json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(400).json("Bad request");
+  }
+});
+
 // Update user by ID
 router.put("/:id", async (req, res) => {
   const id = req.params.id;
