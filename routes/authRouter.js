@@ -44,7 +44,7 @@ router.post(
         email: user.email,
       };
 
-      const TOKEN = jwt.sign(Payload, process.env.SECRET_KEY, {
+      const TOKEN = jwt.sign(payload, process.env.SECRET_KEY, {
         expiresIn: "2 days",
       });
 

@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 
 // Get users
-router.get("/", async (req, res) => {
+router.get("/", authMiddleware, async (req, res) => {
   try {
     const user = await usersModel.find();
     res.status(200).json(user);
@@ -20,6 +20,7 @@ router.get("/", async (req, res) => {
 // Create users
 router.post(
   "/",
+  authMiddleware,
   [
     check("username", "Username is required"),
     check("email", "Please use a valid email").isEmail(),
@@ -74,7 +75,7 @@ router.post(
 );
 
 // Get user by ID
-router.get("/:id", async (req, res) => {
+router.get("/:id", authMiddleware, async (req, res) => {
   try {
     const user = await usersModel.find();
     res.status(200).json(user);
@@ -85,7 +86,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // Update user by ID
-router.put("/:id", async (req, res) => {
+router.put("/:id", authMiddleware, async (req, res) => {
   const id = req.params.id;
   const newUserData = req.body;
 
@@ -101,7 +102,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // Delete user by ID
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authMiddleware, async (req, res) => {
   const id = req.params.id;
 
   try {
