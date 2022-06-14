@@ -1,4 +1,4 @@
-const express = require("epxress");
+const express = require("express");
 const blogModel = require("../models/blogsSchema");
 const authMiddleware = require("../middleware/authMiddleware");
 
@@ -37,7 +37,7 @@ router.get("/:id", authMiddleware, async (req, res) => {
     res.status(200).json(blog);
   } catch (error) {
     console.error(error);
-    res.statys(400).json("ID not found");
+    res.status(400).json("ID not found");
   }
 });
 

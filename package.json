@@ -25,6 +25,7 @@
     "express-validator": "^6.14.1",
     "helmet": "^5.1.0",
     "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.8",
     "morgan": "^1.10.0"
   }
 }
