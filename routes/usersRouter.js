@@ -6,6 +6,17 @@ const jwt = require("jsonwebtoken");
 
 const router = express.Router();
 
+// Get users
+router.get("/", async (req, res) => {
+  try {
+    const user = await usersModel.find();
+    res.status(200).json(user);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+// Create users
 router.post(
   "/",
   [
@@ -60,5 +71,17 @@ router.post(
     }
   }
 );
+
+// Update user by ID
+router.put("/:id", async (req, res) => {
+  const id = req.params.id;
+  const newUserData = req.body;
+
+  try {
+    const user = await usersModel.findByIdAndUpdate(id, newUserData, {
+      new: true,
+    });
+  } catch (error) {}
+});
 
 module.exports = router;
