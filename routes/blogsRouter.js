@@ -17,7 +17,6 @@ router.get("/", authMiddleware, async (req, res) => {
 // Create blog
 router.post("/", authMiddleware, async (req, res) => {
   const blogData = req.body;
-  console.log(blogData);
 
   try {
     const blog = await blogModel.create(blogData);
