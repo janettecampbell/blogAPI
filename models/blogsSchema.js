@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const usersSchema = require("./usersSchema");
+const { Schema, Types } = mongoose;
 
 const blogSchema = mongoose.Schema({
   created_by: {

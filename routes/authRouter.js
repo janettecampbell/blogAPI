@@ -37,6 +37,8 @@ router.post(
         return res.json("Password is not correct");
       }
 
+      req.user = user;
+
       // Create a new JWT Token
 
       const payload = {

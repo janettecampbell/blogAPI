@@ -1,5 +1,6 @@
 const express = require("express");
 const blogModel = require("../models/blogsSchema");
+const userModel = require("../models/usersSchema");
 const authMiddleware = require("../middleware/authMiddleware");
 
 const router = express.Router();
@@ -58,6 +59,7 @@ router.put("/:id", authMiddleware, async (req, res) => {
     const blog = await blogModel.findByIdAndUpdate(id, newBlogData, {
       new: true,
     });
+
     res.status(202).json(blog);
   } catch (error) {
     console.error(error);
