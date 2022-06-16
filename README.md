@@ -99,3 +99,8 @@ the following should be added to your package.json
 ## Middleware
 
 authMiddleware: checks to see if header has a token.
+
+## Upcoming Features
+
+- Documentation with Swagger
+- Super User Account
