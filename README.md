@@ -6,6 +6,10 @@ User will be able to see both public and private blogs, and will be able to filt
 
 The API is protected by using a hashed password, and unique emails during account creation.
 
+## Heroku Link
+
+https://jan-blog-app.herokuapp.com/
+
 ## Tech Stack
 
 **Server:** Node, Express
