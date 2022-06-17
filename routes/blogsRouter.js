@@ -14,6 +14,7 @@ router.get("/", authMiddleware, async (req, res) => {
   }
 });
 
+// get public blogs
 router.get("/public", authMiddleware, async (req, res) => {
   try {
     const blog = await blogModel.find({ private: false });
