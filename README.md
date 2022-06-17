@@ -20,6 +20,7 @@ To run this file, the following environment variables are needed in the .env fil
 
 - MONGODB_URI
 - SECRET_KEY
+- PORT
 
 ## Run Locally
 
