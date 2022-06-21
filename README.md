@@ -1,6 +1,6 @@
 # Blog API
 
-This is a blog API. The user will get a Token upon sign in that will be in the header. The user will then be able to view all blogs, view blogs by id, add, update blogs by id, and remove blogs by id. They will also be able to see all users, see users by id update, add, and delete users.
+This is a blog API. The user will get a Token upon sign in that will be in the header. The user will then be able to view all blogs, view blogs by id, add, update blogs by id, and remove blogs by id. They will also be able to see all users, see users by id, update users by id, add users by id, and delete users by id.
 
 User will be able to see both public and private blogs, and will be able to filter out private blogs by going to the /blogs/public route.
 
