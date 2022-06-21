@@ -42,10 +42,32 @@ const router = express.Router();
  *        blog_title: MoonBeam Test8
  *        blog_content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend, mauris at tincidunt
  *        private: false
- *
- *
  */
 
+/**
+ * @swagger
+ * tags:
+ *  name: Blogs
+ *  description: The blog managing API
+ */
+
+/**
+ * @swagger
+ * /blogs:
+ *  get:
+ *    summary: Returns a list of all the blogs
+ *    tags: [Blogs]
+ *    responses:
+ *      200:
+ *        description: The list of all the blogs
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Blog'
+ *
+ */
 // Get blogs
 router.get("/", authMiddleware, async (req, res) => {
   try {
@@ -56,6 +78,23 @@ router.get("/", authMiddleware, async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /blogs/public:
+ *  get:
+ *    summary: Returns a list of all the public blogs
+ *    tags: [Blogs]
+ *    responses:
+ *      200:
+ *        description: The list of all the public blogs
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Blog'
+ *
+ */
 // get public blogs
 router.get("/public", authMiddleware, async (req, res) => {
   try {
@@ -66,6 +105,23 @@ router.get("/public", authMiddleware, async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /blogs:
+ *  post:
+ *    summary: Creates a blog post
+ *    tags: [Blogs]
+ *    responses:
+ *      201:
+ *        description: The blog posted successfully
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Blog'
+ *
+ */
 // Create blog
 router.post("/", authMiddleware, async (req, res) => {
   const blogData = req.body;
@@ -79,6 +135,38 @@ router.post("/", authMiddleware, async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /blogs/{id}:
+ *  get:
+ *    summary: Gets blog by ID
+ *    tags: [Blogs]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: The blog ID
+ *    responses:
+ *      200:
+ *        description: The blog was retrieved successfully
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Blog'
+ *
+ *      400:
+ *        description: The ID was not found
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Blog'
+ */
 // Get blog by ID
 router.get("/:id", authMiddleware, async (req, res) => {
   const id = req.params.id;
@@ -92,6 +180,29 @@ router.get("/:id", authMiddleware, async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /blogs/{id}:
+ *  put:
+ *    summary: Updates blog by ID
+ *    tags: [Blogs]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: The blog ID
+ *    responses:
+ *      202:
+ *        description: The blog was updated successfully
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Blog'
+ */
 // Update blog by ID
 router.put("/:id", authMiddleware, async (req, res) => {
   const id = req.params.id;
@@ -108,6 +219,29 @@ router.put("/:id", authMiddleware, async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /blogs/{id}:
+ *  delete:
+ *    summary: Deletes blog by ID
+ *    tags: [Blogs]
+ *    parameters:
+ *      - in: path
+ *        name: id
+ *        schema:
+ *          type: string
+ *        required: true
+ *        description: The blog ID
+ *    responses:
+ *      200:
+ *        description: The blog was deleted successfully
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Blog'
+ */
 // Delete a blog
 router.delete("/:id", authMiddleware, async (req, res) => {
   const id = req.params.id;
