@@ -36,7 +36,9 @@ git clone https://github.com/PotstickerNut/blogAPI.git
 
 ### Go to the blogAPI directory
 
-cd location of the blogAPI on your computer
+```
+cd blogAPI
+```
 
 ### Install Dependencies
 
