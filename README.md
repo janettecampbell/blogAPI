@@ -98,19 +98,19 @@ The following should be added to your package.json
 
 ### Blogs Route Schema:
 
-- created_by: String, required
-- created_at: Date, required
-- blog_title: String, required
-- blog_content: String, required
-- private: Boolean, required
+- **created_by:** String, required
+- **created_at:** Date, required
+- **blog_title:** String, required
+- **blog_content:** String, required
+- **private:** Boolean, required
 
 ### Users Route Schema:
 
-- username: String, required
-- email: String, required
-- birthday: Date, required
-- age: Number
-- password: String, required
+- **username:** String, required
+- **email:** String, required
+- **birthday:** Date, required
+- **age:** Number
+- **password:** String, required
 
 ## Middleware
 
@@ -119,4 +119,4 @@ authMiddleware: checks to see if header has a token.
 ## Upcoming Features
 
 - Blogs linked to creators
-- Super User Account
+- Admin Account
