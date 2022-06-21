@@ -69,9 +69,9 @@ The following should be added to your package.json
 
 #### Auth ("/auth")
 
-| Type | Route | Description                                              |
-| ---- | ----- | -------------------------------------------------------- |
-| POST | "/"   | Register users, password is hashed, and token generated. |
+| Type | Route | Description                                           |
+| ---- | ----- | ----------------------------------------------------- |
+| POST | "/"   | Login users, password is hashed, and token generated. |
 
 #### User ("/users")
 
