@@ -134,4 +134,5 @@ authMiddleware: checks to see if header has a token.
 ## Upcoming Features
 
 - Documentation with Swagger
+- Blogs linked to creators
 - Super User Account
