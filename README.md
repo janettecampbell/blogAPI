@@ -78,7 +78,7 @@ The following should be added to your package.json
 | Type   | Route  | Description                                                                                      |
 | ------ | ------ | ------------------------------------------------------------------------------------------------ |
 | GET    | "/"    | Shows all users, must be logged in and have token.                                               |
-| POST   | "/"    | Creates users with usersSchema and provides token.                                               |
+| POST   | "/"    | Creates users with usersSchema, password is hashed, and provides token.                          |
 | GET    | "/:id" | Returns user by user ID. Parameter is required to get user. Must be signed in and have token.    |
 | PUT    | "/:id" | Updates user by user ID. Parameter is required to update user. Must be signed in and have token. |
 | DELETE | "/:id" | Deletes user by user ID. Parameter is required to delete user. Must be signed in and have token. |
