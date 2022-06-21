@@ -54,6 +54,8 @@ the following should be added to your package.json
 - jsonwebtoken
 - mongoose
 - morgan
+- swagger-jsdoc
+- swagger-ui-express
 
 ### Routes
 

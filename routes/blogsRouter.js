@@ -4,6 +4,48 @@ const authMiddleware = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *    Blog:
+ *      type: object
+ *      required:
+ *        - created_by
+ *        - created_at
+ *        - blog_title
+ *        - blog_content
+ *        - private
+ *      properties:
+ *        id:
+ *          type: string
+ *          description: The auto-generated id of the blog
+ *        created_by:
+ *          type: string
+ *          description: Who created the blog
+ *        created_at:
+ *          type: date
+ *          description: When the blog was created
+ *        blog_title:
+ *          type: string
+ *          description: The blog title
+ *        blog_content:
+ *          type: string
+ *          description: The content of the blog post
+ *        private:
+ *          type: boolean
+ *          description: Whether the blog is public or private
+ *      example:
+ *        id: 62a8934b1fe50f2bc0759670
+ *        created_by: Moonbeam
+ *        created_at: 2022-06-14T13:55:08.482Z
+ *        blog_title: MoonBeam Test8
+ *        blog_content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend, mauris at tincidunt
+ *        private: false
+ *
+ *
+ */
+
 // Get blogs
 router.get("/", authMiddleware, async (req, res) => {
   try {
