@@ -67,20 +67,11 @@ The following should be added to your package.json
 
 #### Auth ("/auth")
 
-<!-- - **authRouter.post ("/"):** register users, password is hashed, and token generated. -->
-
 | Type | Route | Description                                              |
 | ---- | ----- | -------------------------------------------------------- |
 | POST | "/"   | Register users, password is hashed, and token generated. |
 
 #### User ("/users")
-
-<!-- - **usersRouter.get ("/"):** shows all users, must be logged in and have token.
-
-- **usersRouter.post ("/"):** Creates users with usersSchema and provides token.
-- **usersRouter.get ("/:id"):** Returns user by user ID. Parameter is required to get user. Must be signed in and have token.
-- **usersRouter.put ("/:id"):** Updates user by user ID. Parameter is required to update user. Must be signed in and have token.
-- **usersRouter.delete ("/:id"):** Deletes user by user ID. Parameter is required to delete user. Must be signed in and have token. -->
 
 | Type   | Route  | Description                                                                                      |
 | ------ | ------ | ------------------------------------------------------------------------------------------------ |
@@ -91,14 +82,6 @@ The following should be added to your package.json
 | DELETE | "/:id" | Deletes user by user ID. Parameter is required to delete user. Must be signed in and have token. |
 
 #### Blogs ("/blogs")
-
-<!--
-- **blogsRoute.get ("/"):** Shows all blogs, must be logged in and have a token
-- **blogsRoute.post ("/blogs"):** Creates blog with blogSchema. Must be signed in and have a token.
-- **blogsRoute.get ("/blogs/public"):** Shows all public blogs. Must be signed in and have a token.
-- **blogsRoute.get ("/:id"):** Returns blog by blog ID. Parameter is required to get blog. Must be signed in and have a token.
-- **blogsRoute.put ("/:id"):** Updates blog by blog ID. Parameter is required to update blog. Must be signed in and have a token.
-- **blogsRoute.delete ("/:id"):** Deletes blog by blog ID. Parameter is required to delete blog. Must be signed in and have a token. -->
 
 | Type   | Route           | Description                                                                                        |
 | ------ | --------------- | -------------------------------------------------------------------------------------------------- |
