@@ -40,11 +40,13 @@ cd location of the blogAPI on your computer
 
 ### Install Dependencies
 
+```
 npm init -y
 
 npm i
+```
 
-the following should be added to your package.json
+The following should be added to your package.json
 
 - bcrypt
 - dotenv
@@ -111,3 +113,7 @@ authMiddleware: checks to see if header has a token.
 
 - Documentation with Swagger
 - Super User Account
+
+```
+
+```
