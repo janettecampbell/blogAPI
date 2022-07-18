@@ -3,6 +3,7 @@ const express = require("express");
 require("dotenv").config();
 const morgan = require("morgan");
 const helmet = require("helmet");
+const cors = require("cors");
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
 
@@ -39,6 +40,7 @@ app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(helmet());
+app.use(cors());
 
 // Routers
 app.use("/blogs", blogsRouter);

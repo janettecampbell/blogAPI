@@ -70,7 +70,7 @@ const router = express.Router();
  *                $ref: '#/components/schemas/Blog'
  */
 
-// Get users
+// =========== Get users =========
 router.get("/", authMiddleware, async (req, res) => {
   try {
     const user = await usersModel.find();
@@ -105,7 +105,7 @@ router.get("/", authMiddleware, async (req, res) => {
  *              items:
  *                $ref: '#/components/schemas/Blog'
  */
-// Create users
+// ======== Create users =========
 router.post(
   "/",
   [
@@ -193,7 +193,7 @@ router.post(
  *              items:
  *                $ref: '#/components/schemas/Blog'
  */
-// Get user by ID
+// ========== Get user by ID ==============
 router.get("/:id", authMiddleware, async (req, res) => {
   const id = req.params.id;
 
@@ -237,7 +237,7 @@ router.get("/:id", authMiddleware, async (req, res) => {
  *              items:
  *                $ref: '#/components/schemas/Blog'
  */
-// Update user by ID
+// ============ Update user by ID ============
 router.put("/:id", authMiddleware, async (req, res) => {
   const id = req.params.id;
   const newUserData = req.body;
@@ -284,7 +284,7 @@ router.put("/:id", authMiddleware, async (req, res) => {
  *              items:
  *                $ref: '#/components/schemas/Blog'
  */
-// Delete user by ID
+//! ========== Delete user by ID ==========
 router.delete("/:id", authMiddleware, async (req, res) => {
   const id = req.params.id;
 
