@@ -124,10 +124,15 @@ router.get("/public", authMiddleware, async (req, res) => {
  */
 // Create blog
 router.post("/", authMiddleware, async (req, res) => {
+  // gets data from request
   const blogData = req.body;
 
+  blogData.user = req.user.id;
+
   try {
+    // create blog in the DB
     const blog = await blogModel.create(blogData);
+    //sent back the response
     res.status(201).json(blog);
   } catch (error) {
     console.error(error);
@@ -242,7 +247,7 @@ router.put("/:id", authMiddleware, async (req, res) => {
  *              items:
  *                $ref: '#/components/schemas/Blog'
  */
-// Delete a blog
+//! Delete a blog
 router.delete("/:id", authMiddleware, async (req, res) => {
   const id = req.params.id;
   try {
