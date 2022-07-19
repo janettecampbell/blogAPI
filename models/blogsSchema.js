@@ -12,12 +12,12 @@ const blogSchema = mongoose.Schema({
     required: true,
   },
 
-  blog_title: {
+  title: {
     type: String,
     required: true,
   },
 
-  blog_content: {
+  content: {
     type: String,
     required: true,
   },

@@ -2,6 +2,7 @@ const express = require("express");
 const blogModel = require("../models/blogsSchema");
 const authMiddleware = require("../middleware/authMiddleware");
 
+// ========= Create a Router =========
 const router = express.Router();
 
 /**
@@ -68,7 +69,7 @@ const router = express.Router();
  *                $ref: '#/components/schemas/Blog'
  *
  */
-// Get blogs
+// ========== Get blogs ============
 router.get("/", authMiddleware, async (req, res) => {
   try {
     const blog = await blogModel.find();
@@ -95,7 +96,7 @@ router.get("/", authMiddleware, async (req, res) => {
  *                $ref: '#/components/schemas/Blog'
  *
  */
-// get public blogs
+// ========= get public blogs ==================
 router.get("/public", authMiddleware, async (req, res) => {
   try {
     const blog = await blogModel.find({ private: false });
@@ -122,15 +123,18 @@ router.get("/public", authMiddleware, async (req, res) => {
  *                $ref: '#/components/schemas/Blog'
  *
  */
-// Create blog
+// ============== Create blog ==============
 router.post("/", authMiddleware, async (req, res) => {
   // gets data from request
   const blogData = req.body;
 
+  console.log(blogData);
   blogData.user = req.user.id;
+  // blogData.private = false;
+  blogData.created_by = req.user.id;
 
   try {
-    // create blog in the DB
+    // =========== create blog in the DB =============
     const blog = await blogModel.create(blogData);
     //sent back the response
     res.status(201).json(blog);
@@ -172,7 +176,7 @@ router.post("/", authMiddleware, async (req, res) => {
  *              items:
  *                $ref: '#/components/schemas/Blog'
  */
-// Get blog by ID
+// ========== Get blog by ID ============
 router.get("/:id", authMiddleware, async (req, res) => {
   const id = req.params.id;
 
@@ -208,7 +212,7 @@ router.get("/:id", authMiddleware, async (req, res) => {
  *              items:
  *                $ref: '#/components/schemas/Blog'
  */
-// Update blog by ID
+// ============ Update blog by ID ================
 router.put("/:id", authMiddleware, async (req, res) => {
   const id = req.params.id;
   const newBlogData = req.body;
@@ -247,7 +251,7 @@ router.put("/:id", authMiddleware, async (req, res) => {
  *              items:
  *                $ref: '#/components/schemas/Blog'
  */
-//! Delete a blog
+//! ============ Delete a blog =============
 router.delete("/:id", authMiddleware, async (req, res) => {
   const id = req.params.id;
   try {
