@@ -33,10 +33,10 @@ const specs = swaggerJsDoc(options);
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Swagger Documentation
+// =========== Swagger Documentation =============
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 
-// Middleware
+// =============== Middleware =================
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(helmet());
@@ -47,7 +47,7 @@ app.use("/blogs", blogsRouter);
 app.use("/users", usersRouter);
 app.use("/auth", authRouter);
 
-// Root route for the App
+// ================ Root route for the App ============
 app.get("/", (req, res) => {
   res.status(200).json("Welcome to my blog API");
 });
