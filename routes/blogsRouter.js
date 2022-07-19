@@ -129,12 +129,13 @@ router.post("/", authMiddleware, async (req, res) => {
   const blogData = req.body;
 
   console.log(blogData);
+  console.log(req.user);
   blogData.user = req.user.id;
   // blogData.private = false;
   blogData.created_by = req.user.id;
 
   try {
-    // =========== create blog in the DB =============
+    // create blog in the DB
     const blog = await blogModel.create(blogData);
     //sent back the response
     res.status(201).json(blog);
