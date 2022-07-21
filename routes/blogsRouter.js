@@ -131,8 +131,8 @@ router.post("/", authMiddleware, async (req, res) => {
   console.log(blogData);
   console.log(req.user);
   blogData.user = req.user.id;
-  // blogData.private = false;
   blogData.created_by = req.user.id;
+  // blogData.created_by = req.user.username;
 
   try {
     // create blog in the DB
@@ -215,7 +215,7 @@ router.get("/:id", authMiddleware, async (req, res) => {
  */
 // ============ Update blog by ID ================
 router.put("/:id", authMiddleware, async (req, res) => {
-  const id = req.params.id;
+  const id = req.params.id.trim();
   const newBlogData = req.body;
 
   try {
