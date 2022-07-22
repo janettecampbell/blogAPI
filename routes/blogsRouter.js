@@ -131,8 +131,8 @@ router.post("/", authMiddleware, async (req, res) => {
   console.log(blogData);
   console.log(req.user);
   blogData.user = req.user.id;
-  // blogData.created_by = req.user.id;
-  blogData.created_by = req.user.username;
+  blogData.created_by = req.user.id;
+  // blogData.created_by = req.user.username;
 
   try {
     // create blog in the DB
