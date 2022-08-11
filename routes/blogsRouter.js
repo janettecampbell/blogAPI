@@ -73,6 +73,7 @@ const router = express.Router();
 router.get("/", authMiddleware, async (req, res) => {
   try {
     const blog = await blogModel.find();
+
     res.status(200).json(blog);
   } catch (error) {
     console.error(error);
@@ -128,11 +129,8 @@ router.post("/", authMiddleware, async (req, res) => {
   // gets data from request
   const blogData = req.body;
 
-  console.log(blogData);
-  console.log(req.user);
   blogData.user = req.user.id;
-  blogData.created_by = req.user.id;
-  // blogData.created_by = req.user.username;
+  blogData.created_by = req.user.username;
 
   try {
     // create blog in the DB

@@ -44,6 +44,7 @@ router.post(
       const payload = {
         id: user._id,
         email: user.email,
+        username: user.username,
       };
 
       const TOKEN = jwt.sign(payload, process.env.SECRET_KEY, {
