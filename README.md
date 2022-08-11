@@ -118,6 +118,5 @@ authMiddleware: checks to see if header has a token.
 
 ## Upcoming Features
 
-- Blogs linked to creators
 - Admin Account
 - Calculate the age
