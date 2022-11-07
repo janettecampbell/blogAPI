@@ -22,7 +22,7 @@ const options = {
     },
     servers: [
       {
-        url: "https://jan-blog-app.herokuapp.com",
+        url: "https://janblogapi.b4a.app/",
       },
     ],
   },
